@@ -1,0 +1,61 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+}
+
+#mainview {
+    width: 860px;
+    height: 850px;
+    margin: 10px 0;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#gameview {
+    height: 60%;
+    width: 100%;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    position: relative;
+}
+
+#holder {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+
+    width: 0;
+    height: 0;
+
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid black;
+
+    transform: translate(-50%, -50%);
+}
+
+#plank {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+
+    width: 400px;
+    height: 20px;
+    background-color: brown;
+
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-out;
+}

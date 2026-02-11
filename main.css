@@ -59,3 +59,9 @@ body {
     transform: translate(-50%, -50%);
     transition: transform 0.2s ease-out;
 }
+
+.ball {
+    position: absolute;
+    border-radius: 300px;
+    background-color: red;
+}

@@ -4,6 +4,18 @@ import { saveToLocalStorage } from "./localStorageHandler.js";
 import { viewWeight } from "./weightViewer.js";
 
 const ballSize = 30;
+const colorMap = {
+    1: "white",
+    2: "brown",
+    3: "orange",
+    4: "red",
+    5: "blue",
+    6: "skyblue",
+    7: "antiquewhite",
+    8: "purple",
+    9: "yellow",
+    10: "grey"
+}
 
 export function addBall(parent, x, y) {
     const ball = document.createElement("div");
@@ -19,6 +31,8 @@ export function addBall(parent, x, y) {
     ball.style.top = `${top}px`;
 
     const weight = generateRandomWeight();
+    ball.style.backgroundColor = colorMap[weight];
+
     state.balls.push({
         weight: weight,
         left: left,
@@ -46,6 +60,7 @@ export function loadBalls() {
         ball.style.height = ballSize + "px";
         ball.style.left = `${oldball.left}px`;
         ball.style.top = `${oldball.top}px`;
+        ball.style.backgroundColor = colorMap[oldball.weight];
         //console.log(state.balls)
         plank.appendChild(ball);
     });

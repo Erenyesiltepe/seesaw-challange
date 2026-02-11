@@ -26,6 +26,7 @@ export function addBall(parent, x, y) {
     const weight = generateRandomWeight();
 
     addBallStyle(ball, left, top, weight);
+    addBallWeightLabel(ball, weight);
 
     state.balls.push({
         weight: weight,
@@ -46,6 +47,7 @@ export function loadBalls() {
         const ball = document.createElement("div");
 
         addBallStyle(ball, oldball.left, oldball.top, oldball.weight);
+        addBallWeightLabel(ball, oldball.weight);
 
         plank.appendChild(ball);
     });
@@ -65,4 +67,13 @@ function addBallStyle(ballElement, left, top, weight) {
     ballElement.style.left = `${left}px`;
     ballElement.style.top = `${top}px`;
     ballElement.style.backgroundColor = colorMap[weight];
+}
+
+function addBallWeightLabel(ball, weight) {
+    const label = document.createElement("div")
+    label.innerText = weight + "kg";
+    ball.appendChild(label);
+    ball.style.display = "flex";
+    ball.style.alignItems = "center";
+    ball.style.justifyContent = "center";
 }

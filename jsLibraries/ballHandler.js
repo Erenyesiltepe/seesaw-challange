@@ -22,16 +22,10 @@ export function addBall(parent, x, y) {
 
     const left = x - ballSize / 2;
     const top = y - ballSize / 2;
-    console.log(x, y, left, top);
-
-    ball.className = "ball";
-    ball.style.width = ballSize + "px";
-    ball.style.height = ballSize + "px";
-    ball.style.left = `${left}px`;
-    ball.style.top = `${top}px`;
 
     const weight = generateRandomWeight();
-    ball.style.backgroundColor = colorMap[weight];
+
+    addBallStyle(ball, left, top, weight);
 
     state.balls.push({
         weight: weight,
@@ -46,25 +40,29 @@ export function addBall(parent, x, y) {
     saveToLocalStorage();
 }
 
-export function generateRandomWeight() {
-    return Math.round(Math.random() * 9) + 1;
-}
-
 export function loadBalls() {
     const plank = document.getElementById("plank");
     state.balls.forEach((oldball) => {
         const ball = document.createElement("div");
 
-        ball.className = "ball";
-        ball.style.width = ballSize + "px";
-        ball.style.height = ballSize + "px";
-        ball.style.left = `${oldball.left}px`;
-        ball.style.top = `${oldball.top}px`;
-        ball.style.backgroundColor = colorMap[oldball.weight];
-        //console.log(state.balls)
+        addBallStyle(ball, oldball.left, oldball.top, oldball.weight);
+
         plank.appendChild(ball);
     });
 
     animatePlank(plank);
     viewWeight();
+}
+
+function generateRandomWeight() {
+    return Math.round(Math.random() * 9) + 1;
+}
+
+function addBallStyle(ballElement, left, top, weight) {
+    ballElement.className = "ball";
+    ballElement.style.width = ballSize + "px";
+    ballElement.style.height = ballSize + "px";
+    ballElement.style.left = `${left}px`;
+    ballElement.style.top = `${top}px`;
+    ballElement.style.backgroundColor = colorMap[weight];
 }

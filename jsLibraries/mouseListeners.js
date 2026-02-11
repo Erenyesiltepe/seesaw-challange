@@ -1,9 +1,16 @@
 import { addBall } from "./ballHandler.js"
 
 function clickListener(e) {
-    //console.log("listener clicked", e.offsetX, " ", e.offsetY);
-    const parent = e.currentTarget;
-    addBall(parent, e.offsetX, e.offsetY);
+    const plank = e.currentTarget;
+    let localX = e.offsetX;
+    let localY = e.offsetY;
+
+    if (e.target !== e.currentTarget) {
+        localX += e.target.offsetLeft;
+        localY += e.target.offsetTop;
+    }
+
+    addBall(plank, localX, localY);
 }
 
 export function bindListeners() {

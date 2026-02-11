@@ -1,3 +1,4 @@
+import { state } from "./state.js"
 const ballSize = 30;
 
 export function addBall(parent, x, y) {
@@ -13,5 +14,16 @@ export function addBall(parent, x, y) {
     ball.style.left = `${left}px`;
     ball.style.top = `${top}px`;
 
+    const weight = generateRandomWeight();
+    state.balls.push({
+        weight: weight,
+        left: left,
+        top: top
+    })
+    //console.log(state.balls)
     parent.appendChild(ball);
 }
+
+export function generateRandomWeight() {
+    return Math.round(Math.random() * 9) + 1;
+} 

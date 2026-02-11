@@ -94,3 +94,7 @@ body {
     border-radius: 300px;
     background-color: red;
 }
+
+.ball>* {
+    pointer-events: none;
+}

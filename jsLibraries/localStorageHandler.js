@@ -9,11 +9,11 @@ export function loadFromStorage() {
     try {
         const ballState = localStorage.getItem("ballState");
         state.balls = JSON.parse(ballState)
-        console.log(state.balls);
+        //console.log(state.balls);
         loadBalls();
-    } catch (e) {
+    } catch {
         state.balls = [];
-        console.log(e);
+        console.log("No local state found");
     }
 }
 

@@ -1,4 +1,5 @@
 import { addBall } from "./ballHandler.js"
+import { resetState } from "./state.js";
 
 function clickListener(e) {
     const plank = e.currentTarget;
@@ -16,4 +17,7 @@ function clickListener(e) {
 export function bindListeners() {
     const plankElement = document.getElementById("plank");
     plankElement.addEventListener("click", clickListener);
+
+    const resetElement = document.getElementById("button");
+    resetElement.addEventListener("click", resetState);
 }

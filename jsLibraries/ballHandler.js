@@ -1,4 +1,5 @@
 import { state } from "./state.js"
+import { animatePlank } from "./animation.js";
 const ballSize = 30;
 
 export function addBall(parent, x, y) {
@@ -22,6 +23,7 @@ export function addBall(parent, x, y) {
     })
     //console.log(state.balls)
     parent.appendChild(ball);
+    animatePlank(parent);
 }
 
 export function generateRandomWeight() {

@@ -1,6 +1,7 @@
 import { state } from "./state.js"
 import { animatePlank } from "./animation.js";
 import { saveToLocalStorage } from "./localStorageHandler.js";
+import { viewWeight } from "./weightViewer.js";
 
 const ballSize = 30;
 
@@ -26,6 +27,7 @@ export function addBall(parent, x, y) {
     //console.log(state.balls)
     parent.appendChild(ball);
     animatePlank(parent);
+    viewWeight();
 
     saveToLocalStorage();
 }
@@ -49,4 +51,5 @@ export function loadBalls() {
     });
 
     animatePlank(plank);
+    viewWeight();
 }

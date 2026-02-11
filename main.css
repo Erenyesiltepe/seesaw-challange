@@ -20,7 +20,36 @@ body {
     background: white;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+#mainview> :nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+#leftweight,
+#rightweight {
+    background-color: aquamarine;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid green;
+}
+
+#leftweight>:first-child,
+#rightweight>:first-child {
+    color: grey;
+    font-size: 20px;
+}
+
+#leftweight>:nth-child(2),
+#rightweight>:nth-child(2) {
+    font-size: 30px;
 }
 
 #gameview {
